@@ -14,11 +14,7 @@ export default function VirtualTours() {
     return activeEra.places.find(p => p.streetViewIframe) || activeEra.places[0];
   }, [activeEra]);
 
-  // Convert hex color to rgb for CSS variable manipulation if needed, but we can just use the var
-  const getEraColorRGB = (colorStr: string) => {
-    // Basic extraction if it's a known var, or just use the var directly
-    return colorStr;
-  };
+
 
   return (
     <div className="virtual-tours-page animate-fade-in">

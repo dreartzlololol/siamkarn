@@ -1,6 +1,6 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { erasData, type Place } from '../data/eras';
-import { MapPin, Compass, PlayCircle } from 'lucide-react';
+import { MapPin, Compass } from 'lucide-react';
 import FoodCarousel from '../components/FoodCarousel';
 import './EraDetail.css';
 

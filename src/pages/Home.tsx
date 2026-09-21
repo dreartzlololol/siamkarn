@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, History } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import './Home.css';
 
 export default function Home() {
@@ -47,10 +47,6 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(timer);
   }, [eras.length]);
-
-  const handleNext = () => {
-    setCurrentBg((prev) => (prev + 1) % eras.length);
-  };
 
   return (
     <div className="home">
