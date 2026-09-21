@@ -1,0 +1,139 @@
+.virtual-tours-page {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--color-bg);
+  padding-top: 80px; /* Offset navbar */
+}
+
+/* Sidebar Menu */
+.tours-sidebar {
+  width: 350px;
+  background: rgba(10, 10, 12, 0.95);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.tours-header {
+  padding: var(--spacing-xl);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tours-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-primary);
+}
+
+.tours-header p {
+  color: var(--color-text-main);
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+.tours-menu {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.tour-menu-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.tour-menu-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tour-menu-item.active {
+  background: linear-gradient(135deg, rgba(var(--era-color-rgb, 255, 255, 255), 0.1) 0%, transparent 100%);
+  border-color: rgba(var(--era-color-rgb, 255, 255, 255), 0.3);
+  box-shadow: inset 4px 0 0 var(--era-color);
+}
+
+.tour-era-name {
+  font-size: 1.4rem;
+  font-family: var(--font-serif);
+  margin-bottom: var(--spacing-xs);
+  color: var(--era-color);
+}
+
+.tour-place-name {
+  font-size: 0.9rem;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Main Viewer */
+.tours-viewer {
+  flex: 1;
+  position: relative;
+  background: #000;
+}
+
+.tours-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.tours-overlay-info {
+  position: absolute;
+  bottom: var(--spacing-2xl);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--border-radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+  animation: fadeOut 4s forwards;
+  animation-delay: 3s;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@media (max-width: 900px) {
+  .virtual-tours-page {
+    flex-direction: column;
+  }
+  
+  .tours-sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .tours-menu {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: var(--spacing-sm);
+  }
+  
+  .tour-menu-item {
+    min-width: 200px;
+  }
+}
